@@ -11,6 +11,7 @@
         <Canvas x:Name="cvRysunek" HorizontalAlignment="Center" Height="282" VerticalAlignment="Center" Width="300" Background="#FFE2E953" MinHeight="300" MinWidth="300"/>
         <Button x:Name="btnCross" Content="Rysuj krzyż" HorizontalAlignment="Left" Margin="38,77,0,0" VerticalAlignment="Top" Width="79" Click="btnCross_Click"/>
         <Button x:Name="btnElipsa" Content="Rysuj elipse" HorizontalAlignment="Left" Margin="38,119,0,0" VerticalAlignment="Top" Width="79" Click="btnElipsa_Click"/>
+        <Button x:Name="btnTree" Content="Rysuj drzewo" HorizontalAlignment="Left" Margin="38,160,0,0" VerticalAlignment="Top" Width="79" Click="btnTree_Click"/>
 
     </Grid>
 </Window>

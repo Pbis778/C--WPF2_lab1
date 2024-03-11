@@ -46,7 +46,7 @@ namespace S3WPF2
         private void btnRysuj_Click(object sender, RoutedEventArgs e)
         {
             czyscPlotno();
-            RysujLinie(0, 299, 150, 150, 10, System.Windows.Media.Brushes.Black);
+            RysujLinie(0, 150, 299, 150, 10, System.Windows.Media.Brushes.Black);
             RysujLinie(150, 150, 150, 299, 10, System.Windows.Media.Brushes.Yellow);
         }
 
@@ -73,20 +73,22 @@ namespace S3WPF2
 
         }
 
-        void rysujElipse(int x1, int y1, int height, int width, SolidColorBrush color)
+        void rysujElipse(int x1, int y1, int height, int width, int thickness, SolidColorBrush color, SolidColorBrush colorInside)
         {
             Ellipse elips = new Ellipse();
             elips.Stroke = color;
             elips.Width = width;
             elips.Height = height;
+            elips.StrokeThickness = thickness;
             cvRysunek.Children.Add(elips);
             Canvas.SetRight(elips, x1);
             Canvas.SetTop(elips, y1);
+            elips.Fill = colorInside;
         }
 
-        void rysujWypelnionaElipse(int x1, int y1, int x2, int y2, int r, SolidColorBrush color)
+        /*void rysujWypelnionaElipse(int x1, int y1, int x2, int y2, int r, SolidColorBrush color)
         {
-            rysujElipse(100, 50, 100, 100, System.Windows.Media.Brushes.DarkGreen);
+            rysujElipse(100, 50, 150, 130, 5,  System.Windows.Media.Brushes.DarkGreen, System.Windows.Media.Brushes.Green);
 
             for (int i = 0; i < 1000; i++)
             {
@@ -100,12 +102,19 @@ namespace S3WPF2
                 line.RenderTransform = new RotateTransform(5 * i, 150, 150);
                 cvRysunek.Children.Add(line);
             }
-        }
+        }*/
 
         private void btnElipsa_Click(object sender, RoutedEventArgs e)
         {
             czyscPlotno();
-            rysujWypelnionaElipse(100, 50, 100, 100, 25, System.Windows.Media.Brushes.DarkGreen);
+            rysujElipse(100, 50, 100, 100, 5, System.Windows.Media.Brushes.DarkGreen, System.Windows.Media.Brushes.Green);
+        }
+
+        private void btnTree_Click(object sender, RoutedEventArgs e)
+        {
+            czyscPlotno();
+            rysujElipse(100, 50, 100, 100, 5, System.Windows.Media.Brushes.DarkGreen, System.Windows.Media.Brushes.Green);
+            RysujLinie(150, 150, 150, 299, 12, System.Windows.Media.Brushes.Brown);
         }
     }
 }
